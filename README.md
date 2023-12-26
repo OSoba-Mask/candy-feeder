@@ -14,7 +14,27 @@
 ## Корпус
 
 ## Arduino
+#include <Servo.h>
+Servo servo;
+int button_pin = 2;
+int buttonState = 0;
 
+void setup() { 
+    pinMode(button_pin, INPUT);
+    servo.attach(A0);
+}
+
+void loop() {
+  buttonState = digitalRead(button_pin);
+   if (buttonState == HIGH) { 
+    servo.write(90);
+    delay (1000);
+  }
+  else {
+    servo.write(0);
+    delay (1000);
+  }
+}
 ## Готовое изделие
 Изделие выглядит следующим образом
 ![photo1](photo/1703595703683.jpg)
